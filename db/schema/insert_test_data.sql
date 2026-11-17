@@ -1,15 +1,6 @@
 -- FOOD-102. Генератор тестовых данных
 
-
 BEGIN;
-
--- раньше тут была вспомогательная функция random_enum, но insert_test_data не должна
--- вызывать другие функции из своей схемы, поэтому случайный enum берется прямо в процедуре:
---   (enum_range(NULL::тип))[1 + floor(random() * cardinality(enum_range(NULL::тип)))::int]
--- 1 + floor(...) дает индекс от 1 до N (ceil(random() * N) мог бы дать 0)
--- удаляем старую функцию, если скрипт уже запускали раньше
-DROP FUNCTION IF EXISTS vizgaleva_food.random_enum(anyenum);
-
 
 CREATE OR REPLACE PROCEDURE vizgaleva_food.insert_test_data(value int)
 LANGUAGE plpgsql AS $$
