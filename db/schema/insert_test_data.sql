@@ -92,7 +92,7 @@ DECLARE
     v_order_ts    timestamp;
     v_delivery_ts timestamp;
     v_order_st    vizgaleva_food.order_status;
-    v_shuffle     int[];
+    v_items_cnt   int;
     v_tmp         int;
     v_items       uuid[];
     v_prices      numeric[];
